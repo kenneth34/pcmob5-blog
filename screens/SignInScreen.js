@@ -9,9 +9,11 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   ActivityIndicator,
+  Button,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import axios from "axios";
+import SignUpScreen from "./SignUpScreen";
 
 const API = "https://kennethwong.pythonanywhere.com";
 const API_LOGIN = "/auth";
@@ -81,6 +83,9 @@ export default function SignInScreen({ navigation }) {
             <ActivityIndicator style={{ marginLeft: 20, marginBottom: 20 }} /> // adjust
           ) : null}
         </View>
+        <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+        <Text style={styles.newText}>Register for a new account</Text>
+        </TouchableOpacity>
         <Text style={styles.errorText}>{errorText}</Text>
         <View style={{ height: 20, alignItems: "left" }}></View>
       </View>
@@ -128,5 +133,9 @@ const styles = StyleSheet.create({
   errorText: {
     color: "red",
     height: 40,
+  },
+  newText: {
+    color: "blue",
+    height: 30,
   },
 });
