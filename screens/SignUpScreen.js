@@ -37,7 +37,7 @@ export default function SignUpScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up Page</Text>
+      <Text style={styles.title}>Sign Up to Blog</Text>
       <Text style={styles.fieldTitle}>Username</Text>
       <TextInput
         style={styles.input}
@@ -59,8 +59,11 @@ export default function SignUpScreen({ navigation }) {
         onChangeText={(input) => setPassword(input)}
       />
       <TouchableOpacity onPress={signup} style={styles.signUpButton}>
-        <Text style={styles.buttonText}>Sign Up</Text>
+        <Text style={styles.buttonText}>Sign Me Up</Text>
       </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate("SignIn")}>
+        <Text style={styles.newText}>Already got an account? Sign In!</Text>
+        </TouchableOpacity>
       <Text style={styles.errorText}>{errorText}</Text>
     </View>
   );
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
     backgroundColor: "whitesmoke",
   },
   signUpButton: {
-    backgroundColor: "brown",
+    backgroundColor: "green",
     width: "60%",
     alignItems: "center",
     padding: 18,
@@ -111,5 +114,9 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     height: 40,
+  },
+  newText: {
+    color: "blue",
+    height: 30,
   },
 });

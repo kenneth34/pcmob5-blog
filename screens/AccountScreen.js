@@ -61,13 +61,27 @@ export default function AccountScreen({ navigation }) {
     navigation.navigate("SignIn");
   }
 
+  function Create() {
+    navigation.navigate("Create");
+  }
+
   return (
     <View style={commonStyles.container}>
-      <Text>Account Screen</Text>
-      <Text>{username}</Text>
+      <Text style={styles.head}>Welcome Back Account</Text>
+      <Text style={styles.name}>{username}</Text>
+      <Button title="Add Blog" onPress={Create} />
       <Button title="Sign out" onPress={signOut} />
     </View>
   );
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  name: {
+    color: "red",
+    fontSize: 40,
+  },
+  head: {
+    color: "green",
+    fontSize: 30,
+  },
+});
